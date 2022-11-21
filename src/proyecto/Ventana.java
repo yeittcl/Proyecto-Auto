@@ -16,7 +16,7 @@ public class Ventana extends JFrame{
         juan = new Panel();
         
         this.setLayout(new BorderLayout());
-        this.setTitle("hola jeje");
+        this.setTitle("juego");
         this.setSize(1000,1000);
         this.add(juan);
         this.setLocationRelativeTo(null);
