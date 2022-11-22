@@ -27,7 +27,7 @@ public class Panel extends JPanel {
         super.paintComponent(g);
         g.setColor(Color.BLACK);
         g.fillRect(300+velX, 300+velY, 100, 100);
-        repaint();
+        //repaint();
     }
     
             
