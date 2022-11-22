@@ -6,6 +6,6 @@ public class Game {
     
     public Game(){
         panel = new Panel();
-        ventana = new Ventana();
+        ventana = new Ventana(panel);
     }
 }
