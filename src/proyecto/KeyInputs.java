@@ -5,16 +5,33 @@ import java.awt.event.KeyListener;
 
 public class KeyInputs implements KeyListener{
     private Panel panel;
+    
     public KeyInputs(Panel panel){
         this.panel = panel;
     }
 
     @Override
     public void keyTyped(KeyEvent e) {
+        
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
+        switch(e.getKeyCode()){
+            case KeyEvent.VK_W:
+                panel.changeVelY(-8);
+                break;
+            case KeyEvent.VK_S:
+                panel.changeVelY(8);
+                break;
+            case KeyEvent.VK_A:
+                panel.changeVelX(-8);
+                break;
+            case KeyEvent.VK_D:
+                panel.changeVelX(8);
+                break;
+        }
+        
     }
 
     @Override
