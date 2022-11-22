@@ -10,15 +10,16 @@ public class Panel extends JPanel {
     public Panel(){
         super();
         this.setBackground(Color.GREEN);
+        this.addKeyListener(new KeyInputs(this));
     }
     
     public void changeVelX(int delta){
         velX += delta;
-        repaint();
+        
     }
     public void changeVelY(int delta){
         velY += delta;
-        repaint();
+        
     }
     
     @Override
@@ -26,6 +27,7 @@ public class Panel extends JPanel {
         super.paintComponent(g);
         g.setColor(Color.BLACK);
         g.fillRect(300+velX, 300+velY, 100, 100);
+        repaint();
     }
     
             
