@@ -25,6 +25,7 @@ public class Game implements Runnable{
         while(true){
             now = System.nanoTime();
             if(now - lastFrame >= timePerFrame){
+                panel.update();
                 panel.repaint();
                 lastFrame = now;
                 frames++;

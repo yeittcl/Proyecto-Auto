@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class KeyInputs implements KeyListener{
+    
     private Panel panel;
     private boolean up, down, right, left;
     
