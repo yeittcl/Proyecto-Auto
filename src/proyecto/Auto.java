@@ -42,8 +42,8 @@ public class Auto extends Polygon {
         this.xpoints[0] = (int)(xCenter+ (WIDTH * cos) - ((-HEIGHT + 80)*sin));
         this.ypoints[0] = (int)(yCenter+ (WIDTH * sin) + ((-HEIGHT + 80)*cos));
         
-        this.xpoints[1] = (int)(xCenter+ (WIDTH * cos) - ((HEIGHT + 80)*sin));
-        this.ypoints[1] = (int)(yCenter+ (WIDTH * sin) + ((HEIGHT + 80)*cos));
+        this.xpoints[1] = (int)(xCenter+ (WIDTH * cos) - ((HEIGHT - 80)*sin));
+        this.ypoints[1] = (int)(yCenter+ (WIDTH * sin) + ((HEIGHT - 80)*cos));
         
         this.xpoints[2] = (int)(xCenter+ ((-WIDTH/2) * cos) - (((HEIGHT/2))*sin));
         this.ypoints[2] = (int)(yCenter+ ((-WIDTH/2) * sin) + (((HEIGHT/2))*cos));

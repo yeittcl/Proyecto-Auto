@@ -15,7 +15,21 @@ public class Panel extends JPanel {
         this.setBackground(Color.GREEN);
         this.addKeyListener(keys);
     }
-    
+    public void update(){
+        if(keys.getUp()){
+            auto.changeFowardDirection(1);
+            
+        }
+        if(keys.getDown()){
+            auto.changeFowardDirection(-1);
+        }
+        if(keys.getRight()){
+            auto.changeAngleDirection(1);
+        }
+        if(keys.getLeft()){
+            auto.changeAngleDirection(-1);
+        }
+    }
     
     
     
