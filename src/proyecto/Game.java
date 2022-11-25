@@ -4,7 +4,7 @@ public class Game implements Runnable{
     private Ventana ventana;
     private Panel panel;
     private Thread gameThread;
-    private final int FPS_CAP = 120;
+    private final int FPS_CAP = 144;
     
     public Game(){
         panel = new Panel();
