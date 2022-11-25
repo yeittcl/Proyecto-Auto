@@ -34,5 +34,23 @@ public class Auto extends Polygon {
         theta+= (sign*2);
     }
     
+    public void updateAuto(){
+        
+        double cos = Math.cos(Math.toRadians(theta));
+        double sin = Math.sin(Math.toRadians(theta));
+        
+        this.xpoints[0] = (int)(xCenter+ (WIDTH * cos) - ((-HEIGHT + 80)*sin));
+        this.ypoints[0] = (int)(xCenter+ (WIDTH * sin) + ((-HEIGHT + 80)*cos));
+        
+        this.xpoints[1] = (int)(xCenter+ (WIDTH * cos) - ((HEIGHT + 80)*sin));
+        this.ypoints[1] = (int)(xCenter+ (WIDTH * sin) + ((HEIGHT + 80)*cos));
+        
+        this.xpoints[2] = (int)(xCenter+ ((-WIDTH/2) * cos) - (((HEIGHT/2))*sin));
+        this.ypoints[2] = (int)(xCenter+ ((-WIDTH/2) * sin) + (((HEIGHT/2))*cos));
+        
+        this.xpoints[3] = (int)(xCenter+ ((-WIDTH/2) * cos) - (((-HEIGHT/2))*sin));
+        this.ypoints[3] = (int)(xCenter+ ((-WIDTH/2) * sin) + (((-HEIGHT/2))*cos));
+        
+    }
     
 }
