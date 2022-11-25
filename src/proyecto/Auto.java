@@ -24,6 +24,15 @@ public class Auto extends Polygon {
         this.addPoint((int)(xCenter-(WIDTH/2)), (int)(yCenter+(HEIGHT/2)));
         
     }
+    public void changeFowardDirection(double sign){
+        xCenter+= (sign*VEL)*Math.cos(Math.toRadians(theta));
+        yCenter+= (sign*VEL)*Math.sin(Math.toRadians(theta));
+        
+    }
+    
+    public void changeAngleDirection(double sign){
+        theta+= (sign*2);
+    }
     
     
 }
