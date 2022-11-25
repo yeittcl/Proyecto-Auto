@@ -23,10 +23,11 @@ public class Panel extends JPanel {
         if(keys.getDown()){
             auto.changeFowardDirection(-1);
         }
-        if(keys.getRight()){
+        if(keys.getRight() && (keys.getUp() || keys.getDown())){
             auto.changeAngleDirection(1);
+            
         }
-        if(keys.getLeft()){
+        if(keys.getLeft()&& (keys.getUp() || keys.getDown())){
             auto.changeAngleDirection(-1);
         }
     }
