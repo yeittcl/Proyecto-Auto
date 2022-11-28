@@ -16,7 +16,7 @@ El panel principal debe contener una ruta cerrada, con curvas y soleras creadas 
 ![Use_Case](https://user-images.githubusercontent.com/103296338/202869041-1bbe1cca-5467-4dfe-a287-e2f56267e9c7.png)
 
 ## **Lista de cosas que no sabemos hacer**
-- [ ] Como rotar el polygon del coche al doblar
+- [X] Como rotar el polygon del coche al doblar
 - [ ] Colisiones con la pista
 - [ ] Como crear un menu
 - [ ] Personalizar la pista
