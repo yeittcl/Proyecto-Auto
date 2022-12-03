@@ -51,7 +51,7 @@ public class Panel extends JPanel {
         g2.fill(pistaInterior.getCirculo());
         
         g2.setColor(Color.BLACK);
-        g2.fillPolygon(auto);
+        g2.fill(auto);
     }
     
     
