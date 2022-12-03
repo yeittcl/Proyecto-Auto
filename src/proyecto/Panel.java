@@ -12,8 +12,8 @@ public class Panel extends JPanel {
     public Panel(){
         super();
         auto = new Auto();
-        pistaInterior = new Pista(640, 340, 660, 660);
-        pistaExterior = new Pista(640,340,300,300);
+        pistaExterior = new Pista(640, 340, 660, 660);
+        pistaInterior = new Pista(640,340,300,300);
         keys = new KeyInputs(this);
         this.setBackground(new Color(41,204,15));
         this.addKeyListener(keys);
