@@ -15,7 +15,7 @@ public class Panel extends JPanel {
         pistaInterior = new Pista(640, 340, 660, 660);
         pistaExterior = new Pista(640,340,300,300);
         keys = new KeyInputs(this);
-        this.setBackground(Color.GREEN);
+        this.setBackground(new Color(41,204,15));
         this.addKeyListener(keys);
     }
     public void update(){
@@ -43,8 +43,15 @@ public class Panel extends JPanel {
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
-        g.setColor(Color.BLACK);
-        g.fillPolygon(auto);
+        
+        g2.setColor(new Color(83,84,85));
+        g2.fill(pistaExterior.getCirculo());
+        
+        g2.setColor(new Color(76,194,58));
+        g2.fill(pistaInterior.getCirculo());
+        
+        g2.setColor(Color.BLACK);
+        g2.fillPolygon(auto);
     }
     
     
