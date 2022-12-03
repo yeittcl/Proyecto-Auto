@@ -7,10 +7,13 @@ import java.awt.*;
 public class Panel extends JPanel {
     private KeyInputs keys;
     private Auto auto;
+    private Pista pistaInterior, pistaExterior;
     
     public Panel(){
         super();
         auto = new Auto();
+        pistaInterior = new Pista(640, 340, 660, 660);
+        pistaExterior = new Pista(640,340,300,300);
         keys = new KeyInputs(this);
         this.setBackground(Color.GREEN);
         this.addKeyListener(keys);
@@ -30,6 +33,8 @@ public class Panel extends JPanel {
         if(keys.getLeft()&& (keys.getUp() || keys.getDown())){
             auto.changeAngleDirection(-1);
         }
+        
+        auto.updateAuto();
     }
     
     
@@ -39,7 +44,6 @@ public class Panel extends JPanel {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
         g.setColor(Color.BLACK);
-        auto.updateAuto();
         g.fillPolygon(auto);
     }
     
