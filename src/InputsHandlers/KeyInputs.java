@@ -1,5 +1,6 @@
-package proyecto;
+package InputsHandlers;
 
+import GUI.Panel;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 

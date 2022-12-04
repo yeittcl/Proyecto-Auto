@@ -1,4 +1,7 @@
-package proyecto;
+package Game;
+
+import GUI.Ventana;
+import GUI.Panel;
 
 public class Game implements Runnable{
     private Ventana ventana;

@@ -1,8 +1,11 @@
-package proyecto;
+package GUI;
 
 import java.awt.*;
 import javax.swing.JPanel;
 import java.awt.*;
+import Game.Auto;
+import InputsHandlers.KeyInputs;
+import Game.Pista;
 
 public class Panel extends JPanel {
     private KeyInputs keys;

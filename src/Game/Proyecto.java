@@ -1,4 +1,4 @@
-package proyecto;
+package Game;
 
 public class Proyecto {
 
