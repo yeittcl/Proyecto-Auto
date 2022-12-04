@@ -53,4 +53,11 @@ public class Auto extends Polygon {
         
     }
     
+    public double getXcenter(){
+        return xCenter;
+    }
+    public double getYcenter(){
+        return yCenter;
+    }
+    
 }
