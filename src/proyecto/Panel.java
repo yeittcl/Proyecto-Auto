@@ -9,16 +9,24 @@ public class Panel extends JPanel {
     private Auto auto;
     private Pista pistaInterior, pistaExterior;
     
+    private boolean isColliding;
+    
     public Panel(){
         super();
         auto = new Auto();
         pistaExterior = new Pista(640, 340, 660, 660);
         pistaInterior = new Pista(640,340,300,300);
         keys = new KeyInputs(this);
+        
+        this.isColliding = false;
+        
         this.setBackground(new Color(41,204,15));
         this.addKeyListener(keys);
     }
     public void update(){
+        
+        this.checkCollision();
+        
         if(keys.getUp()){
             auto.changeFowardDirection(1);
             
@@ -37,6 +45,25 @@ public class Panel extends JPanel {
         auto.updateAuto();
     }
     
+    public double calcDistance(Auto auto, Pista pista){
+        double xDist = (auto.getXcenter()-pista.getXcenter())*(auto.getXcenter()-pista.getXcenter());
+        double yDist = (auto.getYcenter()-pista.getYcenter())*(auto.getYcenter()-pista.getYcenter());
+        double dist = Math.sqrt(xDist + yDist);
+        return dist;
+    }
+    
+    public void checkCollision(){
+        double distInside = this.calcDistance(auto, pistaInterior);
+        double distOutside = this.calcDistance(auto, pistaExterior);
+        
+        if(distInside <= pistaInterior.getRadius()+35 || distOutside >= pistaExterior.getRadius()-35){
+            isColliding = true;
+        }
+        else{
+            isColliding = false;
+        }
+    }
+    
     
     
     @Override
@@ -50,7 +77,11 @@ public class Panel extends JPanel {
         g2.setColor(new Color(76,194,58));
         g2.fill(pistaInterior.getCirculo());
         
-        g2.setColor(Color.BLACK);
+        if(!isColliding){
+            g2.setColor(Color.blue);
+        }else{
+            g2.setColor(Color.red);
+        }
         g2.fill(auto);
     }
     
