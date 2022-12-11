@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import Game.Auto;
 import InputsHandlers.KeyInputs;
 import Game.Pista;
+import Game.Ruedas;
 
 /**
  * Clase panel heredada de JPanel en el que dibujaremos
@@ -27,6 +28,7 @@ public class Panel extends JPanel {
     private KeyInputs keys;
     private Auto auto;
     private Pista pistaInterior, pistaExterior;
+    private Ruedas[] ruedas;
     
     private boolean isColliding;
     
@@ -37,6 +39,10 @@ public class Panel extends JPanel {
     public Panel(PistaHolder pistaHolderExterior, PistaHolder pistaHolderInterior){
         super();
         auto = new Auto();
+        ruedas = new Ruedas[4];
+        for(int i =0; i < ruedas.length; i++){
+            ruedas[i] = new Ruedas(auto);
+        }
         pistaExterior = new Pista(640, 340, 660, 660);
         pistaExterior.setHolder(pistaHolderExterior);
         pistaInterior = new Pista(640,340,300,300);
@@ -63,23 +69,40 @@ public class Panel extends JPanel {
         this.checkCollision();
         
         if(keys.getUp()){
+            for(int i =0; i < ruedas.length; i++){
+                ruedas[i].follow(i);
+            }
             auto.changeFowardDirection(1);
             
         }
         if(keys.getDown()){
+            for(int i =0; i < ruedas.length; i++){
+                ruedas[i].follow(i);
+            }
             auto.changeFowardDirection(-1);
         }
         if(keys.getRight() && (keys.getUp() || keys.getDown())){
+            for(int i =0; i < ruedas.length; i++){
+                ruedas[i].changeAngleDirection();
+            }
             auto.changeAngleDirection(1);
             
         }
         if(keys.getLeft()&& (keys.getUp() || keys.getDown())){
+            for(int i =0; i < ruedas.length; i++){
+                ruedas[i].changeAngleDirection();
+            }
             auto.changeAngleDirection(-1);
         }
         
         auto.updateAuto();
+        for(int i =0; i < ruedas.length; i++){
+                ruedas[i].updateWheel(i);
+            }
+        
         pistaExterior.updatePista();
         pistaInterior.updatePista();
+        
     }
     /**
      * Metodo que calcula la distancia euclidiana mediante la suma de las distancias al cuadrado entre dos puntos, 
@@ -110,9 +133,11 @@ public class Panel extends JPanel {
         
         if(distInside <= pistaInterior.getRadius()+35 || distOutside >= pistaExterior.getRadius()-35){
             isColliding = true;
+            auto.setVelocity(1);
         }
         else{
             isColliding = false;
+            auto.setVelocity(2.5);
         }
     }
     
@@ -132,6 +157,12 @@ public class Panel extends JPanel {
         
         g2.setColor(new Color(76,194,58));
         g2.fill(pistaInterior.getCirculo());
+        
+        g2.setColor(new Color(6,6,6));
+        for(int i =0; i < ruedas.length; i++){
+            
+                g.fillPolygon(ruedas[i]);
+            }
         
         if(!isColliding){
             g2.setColor(Color.blue);
