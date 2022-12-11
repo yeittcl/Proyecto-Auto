@@ -22,7 +22,8 @@ public class Auto extends Polygon {
     private double theta;
     private final double WIDTH = 40;
     private final double HEIGHT = 90;
-    private final double VEL = 2.5;
+    private double VEL = 2.5;
+    
     
     /**
      * Constructor de la clase, se inicializan las variables a sus valores default y se indica la posicion inicial de los puntos
@@ -96,6 +97,12 @@ public class Auto extends Polygon {
      */
     public double getYcenter(){
         return yCenter;
+    }
+    public double getAngle(){
+        return theta;
+    }
+    public void setVelocity(double vel){
+        VEL = vel;
     }
     
 }
