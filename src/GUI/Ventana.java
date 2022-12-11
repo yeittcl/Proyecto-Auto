@@ -18,12 +18,12 @@ public class Ventana extends JFrame{
      * @param panel Objecto panel que adjunta a nuestra ventana
      * @see Panel
      */
-    public Ventana(Panel panel){
+    public Ventana(JTabbedPane pestana){
         super();
         this.setLayout(new BorderLayout());
         this.setTitle("juego");
         this.setSize(1280,720);
-        this.add(panel);
+        this.add(pestana);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false);

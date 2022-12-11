@@ -1,7 +1,9 @@
 package Game;
 
+import Config.PanelConfig;
 import GUI.Ventana;
 import GUI.Panel;
+import javax.swing.JTabbedPane;
 /**
  * Clase que nos permite separar procesos en nuestro proyecto mediante la implementacion de hilos y nos ayuda a encapsular
  * los diferentes objetos y clases, en el se encuentra el gameloop para dibujar los frames y que exista movimiento fluido
@@ -17,6 +19,8 @@ public class Game implements Runnable{
      * y limitamos la cantidad de frames a 144 por segundo mediante una variable global final
      */
     private Ventana ventana;
+    private PanelConfig panelConfig;
+    private JTabbedPane pestana;
     private Panel panel;
     private Thread gameThread;
     private final int FPS_CAP = 144;
@@ -26,7 +30,11 @@ public class Game implements Runnable{
      */
     public Game(){
         panel = new Panel();
-        ventana = new Ventana(panel);
+        panelConfig = new PanelConfig();
+        pestana = new JTabbedPane();
+        pestana.add( "juego",panel);
+        pestana.add("configuracion",panelConfig);
+        ventana = new Ventana(pestana);
         panel.requestFocus();
         gameThread = new Thread(this);
         gameThread.start();
