@@ -1,5 +1,6 @@
 package GUI;
 
+import Config.PistaHolder;
 import java.awt.*;
 import javax.swing.JPanel;
 import Game.Auto;
@@ -33,11 +34,13 @@ public class Panel extends JPanel {
      * Constructor en que incializamos las variables y les damos los valores
      * por default, al igual que configurar el panel con sus caracteristicas
      */
-    public Panel(){
+    public Panel(PistaHolder pistaHolderExterior, PistaHolder pistaHolderInterior){
         super();
         auto = new Auto();
         pistaExterior = new Pista(640, 340, 660, 660);
+        pistaExterior.setHolder(pistaHolderExterior);
         pistaInterior = new Pista(640,340,300,300);
+        pistaInterior.setHolder(pistaHolderInterior);
         keys = new KeyInputs(this);
         
         this.isColliding = false;

@@ -1,6 +1,7 @@
 package Game;
 
 import Config.PanelConfig;
+import Config.PistaHolder;
 import GUI.Ventana;
 import GUI.Panel;
 import javax.swing.JTabbedPane;
@@ -19,6 +20,8 @@ public class Game implements Runnable{
      * y limitamos la cantidad de frames a 144 por segundo mediante una variable global final
      */
     private Ventana ventana;
+    private PistaHolder pistaHolderExterior;
+    private PistaHolder pistaHolderInterior;
     private PanelConfig panelConfig;
     private JTabbedPane pestana;
     private Panel panel;
@@ -29,8 +32,10 @@ public class Game implements Runnable{
      * el hilo para que trabaje desde que se crea la instancia de esta clase
      */
     public Game(){
-        panel = new Panel();
-        panelConfig = new PanelConfig();
+        pistaHolderExterior = new PistaHolder();
+        pistaHolderInterior = new PistaHolder();
+        panel = new Panel(pistaHolderExterior, pistaHolderInterior);
+        panelConfig = new PanelConfig(pistaHolderExterior, pistaHolderInterior);
         pestana = new JTabbedPane();
         pestana.add( "juego",panel);
         pestana.add("configuracion",panelConfig);
