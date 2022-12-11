@@ -78,6 +78,8 @@ public class Panel extends JPanel {
         }
         
         auto.updateAuto();
+        pistaExterior.updatePista();
+        pistaInterior.updatePista();
     }
     /**
      * Metodo que calcula la distancia euclidiana mediante la suma de las distancias al cuadrado entre dos puntos, 
