@@ -1,4 +1,5 @@
 package Game;
+import Config.PistaHolder;
 import java.awt.geom.Ellipse2D;
 /**
  * Clase que define la pista por la que nuestro auto conducira, esta pensada como un circulo
@@ -17,6 +18,7 @@ public class Pista {
     private double xCenter, yCenter;
     private double width, height, radius;
     private Ellipse2D circulo;
+    private PistaHolder pistaHolder;
     
     /**
      * Constructor de la clase, a esta le pasamos el alto, ancho y el centro del circulo
@@ -32,6 +34,7 @@ public class Pista {
         this.width = width;
         this.height = height;
         this.radius = width/2;
+        
         /**
          * Ellipse2D crea un cuadrado dado un x, un y, un ancho y alto, y este dibuja un circulo inscrito entre esos bordes
          * el x e y estan en la parte superior izquierda del cuadrado imaginario, entonces con simples calculos se puede generalizar a un radio y un centro
@@ -59,4 +62,14 @@ public class Pista {
      * @return circulo 
      */
     public Ellipse2D getCirculo(){return circulo;}
+    
+    public void setHolder(PistaHolder pistaHolder){
+        this.pistaHolder = pistaHolder;
+        
+    }
+    public void updatePista(){
+        radius = pistaHolder.getRadioHolder();
+        Ellipse2D circuloAux = new Ellipse2D.Float((float)(xCenter-radius),(float)(yCenter-radius),(float)(radius*2),(float)(radius*2));
+        circulo = circuloAux;
+    }
 }
