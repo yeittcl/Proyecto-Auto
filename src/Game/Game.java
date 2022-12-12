@@ -1,6 +1,6 @@
 package Game;
 
-import Config.PanelConfig;
+import GUI.PanelConfig;
 import Config.PistaHolder;
 import GUI.Ventana;
 import GUI.Panel;
@@ -16,6 +16,8 @@ import javax.swing.JTabbedPane;
 public class Game implements Runnable{
     /**
      * Variables de las clase ventana y panel para mostrar por pantalla
+     * se crean los holders de cada pista y el jtabbed que nos permite tener dos paneles 
+     * en el frame y mostrarlos por medio de cambios en el gui
      * y la creacion de un hilo para separar procesos y no exista "lag"
      * y limitamos la cantidad de frames a 144 por segundo mediante una variable global final
      */

@@ -98,9 +98,17 @@ public class Auto extends Polygon {
     public double getYcenter(){
         return yCenter;
     }
+    /**
+     * metodo retorna theta
+     * @return theta 
+     */
     public double getAngle(){
         return theta;
     }
+    /**
+     * metodo que cambia la velocidad con el parametro que se le indica
+     * @param vel 
+     */
     public void setVelocity(double vel){
         VEL = vel;
     }

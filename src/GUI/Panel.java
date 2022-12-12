@@ -43,9 +43,9 @@ public class Panel extends JPanel {
         for(int i =0; i < ruedas.length; i++){
             ruedas[i] = new Ruedas(auto);
         }
-        pistaExterior = new Pista(640, 340, 660, 660);
+        pistaExterior = new Pista(640, 340, 330);
         pistaExterior.setHolder(pistaHolderExterior);
-        pistaInterior = new Pista(640,340,300,300);
+        pistaInterior = new Pista(640,340,150);
         pistaInterior.setHolder(pistaHolderInterior);
         keys = new KeyInputs(this);
         

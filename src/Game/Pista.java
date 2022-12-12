@@ -16,7 +16,7 @@ public class Pista {
      * y nuestro objeto Ellipse2D que guarda todos estos datos y crea el circulo a mostrar
      */
     private double xCenter, yCenter;
-    private double width, height, radius;
+    private double radius;
     private Ellipse2D circulo;
     private PistaHolder pistaHolder;
     
@@ -28,19 +28,17 @@ public class Pista {
      * @param width variable double que indica el ancho
      * @param height variable double que indica el alto
      */
-    public Pista(double xCenter, double yCenter, double width, double height){
+    public Pista(double xCenter, double yCenter, double radius){
         this.xCenter = xCenter;
         this.yCenter = yCenter;
-        this.width = width;
-        this.height = height;
-        this.radius = width/2;
+        this.radius = radius;
         
         /**
          * Ellipse2D crea un cuadrado dado un x, un y, un ancho y alto, y este dibuja un circulo inscrito entre esos bordes
          * el x e y estan en la parte superior izquierda del cuadrado imaginario, entonces con simples calculos se puede generalizar a un radio y un centro
          * en vez de pensarlo como un cuadrado
          */
-        this.circulo = new Ellipse2D.Float((float)(xCenter-radius), (float)(yCenter-radius), (float)width, (float)height);
+        this.circulo = new Ellipse2D.Float((float)(xCenter-radius), (float)(yCenter-radius), (float)radius*2, (float)radius*2);
     }
     /**
      * metodo retorna el double xCenter
@@ -63,10 +61,19 @@ public class Pista {
      */
     public Ellipse2D getCirculo(){return circulo;}
     
+    /**
+     * metodo que establece el holder que permite el intercambio de parametros
+     * @param pistaHolder 
+     */
     public void setHolder(PistaHolder pistaHolder){
         this.pistaHolder = pistaHolder;
         
     }
+    
+    /**
+     * metodo que hace el cambio de los parametros de la pista como el radio y permite que se muestren en pantalla
+     * y se actualizen de forma fluida
+     */
     public void updatePista(){
         radius = pistaHolder.getRadioHolder();
         Ellipse2D circuloAux = new Ellipse2D.Float((float)(xCenter-radius),(float)(yCenter-radius),(float)(radius*2),(float)(radius*2));
